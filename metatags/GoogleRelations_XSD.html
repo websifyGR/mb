@@ -1,0 +1,77 @@
+<!-- START COMPANY -->
+<div xmlns="https://www.w3.org/1999/xhtml"
+  xmlns:rdf="https://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:rdfs="https://www.w3.org/2000/01/rdf-schema#"
+  xmlns:xsd="https://www.w3.org/2001/XMLSchema#"
+  xmlns:gr="http://purl.org/goodrelations/v1#"
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:vcard="https://www.w3.org/2006/vcard/ns#">
+
+  <div typeof="gr:BusinessEntity" about="#company">
+    <div property="gr:legalName" content="Δερμεντζόγλου Δημοσθένης"></div>
+    <div property="vcard:tel" content="+30-2521-028170"></div>
+    <div rel="vcard:adr">
+      <div typeof="vcard:Address">
+        <div property="vcard:country-name" content="Ελλάδα"></div>
+        <div property="vcard:locality" content="Δράμα"></div>
+        <div property="vcard:postal-code" content="66100"></div>
+        <div property="vcard:street-address" content="Αρμεν 24"></div>
+      </div>
+    </div>
+    <div rel="foaf:logo" resource="https://www.montecristo-shop.gr/LOGOTYPO.png"></div>
+    <div rel="foaf:page" resource=""></div>
+  </div>
+</div>
+<!-- END COMPANY -->
+
+
+<!-- START BRANCH -->
+<div xmlns="https://www.w3.org/1999/xhtml"
+  xmlns:rdf="https://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:rdfs="https://www.w3.org/2000/01/rdf-schema#"
+  xmlns:xsd="https://www.w3.org/2001/XMLSchema#"
+  xmlns:gr="http://purl.org/goodrelations/v1#"
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:vcard="https://www.w3.org/2006/vcard/ns#">
+
+  <div typeof="gr:Location" about="#store">
+    <div rev="gr:hasPOS" resource="https://www.montecristo-shop.gr#company"></div>
+    <div property="gr:name" content="Monte Cristo"></div>
+    <div property="vcard:tel" content="+30-2521-028170"></div>
+    <div rel="vcard:adr">
+      <div typeof="vcard:Address">
+        <div property="vcard:country-name" content="Ελλάδα"></div>
+        <div property="vcard:locality" content="Δράμα"></div>
+        <div property="vcard:postal-code" content="66100"></div>
+        <div property="vcard:street-address" content="Αρμεν 24"></div>
+      </div>
+    </div>
+    <div rel="foaf:logo" resource="https://www.montecristo-shop.gr/LOGOTYPO.png"></div>
+    <div rel="vcard:geo">
+      <div>
+        <div property="vcard:latitude" content="41.15074" datatype="xsd:float"></div>
+        <div property="vcard:longitude" content="24.14721" datatype="xsd:float"></div>
+      </div>
+    </div>
+    <div rel="gr:hasOpeningHoursSpecification">
+      <div typeof="gr:OpeningHoursSpecification" about="#mon_fri">
+        <div property="gr:opens" content="09:00:00" datatype="xsd:time"></div>
+        <div property="gr:closes" content="21:00:00" datatype="xsd:time"></div>
+        <div rel="gr:hasOpeningHoursDayOfWeek" resource="http://purl.org/goodrelations/v1#Monday"></div>
+        <div rel="gr:hasOpeningHoursDayOfWeek" resource="http://purl.org/goodrelations/v1#Tuesday"></div>
+        <div rel="gr:hasOpeningHoursDayOfWeek" resource="http://purl.org/goodrelations/v1#Wednesday"></div>
+        <div rel="gr:hasOpeningHoursDayOfWeek" resource="http://purl.org/goodrelations/v1#Thursday"></div>
+        <div rel="gr:hasOpeningHoursDayOfWeek" resource="http://purl.org/goodrelations/v1#Friday"></div>
+      </div>
+    </div>
+    <div rel="gr:hasOpeningHoursSpecification">
+      <div typeof="gr:OpeningHoursSpecification" about="#sat">
+        <div property="gr:opens" content="09:00:00" datatype="xsd:time"></div>
+        <div property="gr:closes" content="14:00:00" datatype="xsd:time"></div>
+        <div rel="gr:hasOpeningHoursDayOfWeek" resource="http://purl.org/goodrelations/v1#Saturday"></div>
+      </div>
+    </div>
+    <div rel="foaf:page" resource=""></div>
+  </div>
+</div>
+<!-- END BRANCH -->

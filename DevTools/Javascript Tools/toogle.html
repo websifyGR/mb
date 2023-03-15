@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title></title>
+</head>
+
+<style>
+  .hiddenElem {
+    display: none;
+  }
+</style>
+<body>
+
+  <button id="TogglerElementID" onClick="ToggleElement('TogglerElementID','ContentElementID','Show Content','Hide Content');">Show Content</button>
+  <div id="ContentElementID" style="display: none;">Element Content</div>
+
+</body>
+
+<script>
+function ToggleElement(TogglerElementID,ContentElementID,TogglerTextShow,TogglerTextHide){
+/*
+EXAMPLE :
+  <button id="TogglerElementID" onClick="ToggleElement('TogglerElementID','ContentElementID','Show Content','Hide Content');">Show Content</button>
+  <div id="ContentElementID" style="display: none;">Element Content</div>
+*/
+  if(document.getElementById(ContentElementID).style.display === 'block'){
+	    document.getElementById(ContentElementID).style.display   = "none";
+		document.getElementById(TogglerElementID).innerHTML = TogglerTextShow;
+		
+  }else{
+  
+	    document.getElementById(ContentElementID).style.display   = "block";
+		document.getElementById(TogglerElementID).innerHTML = TogglerTextHide;
+  }
+}
+</script>
+</html>

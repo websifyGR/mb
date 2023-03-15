@@ -14,7 +14,6 @@
    z-index: 99999; 
 }
 
-
 .prestyle {
   width:100%;
   margin: auto;  
@@ -34,23 +33,9 @@
 .prestyle2 {
  padding:10px;
  margin: auto;
- 
-
-
  width:100%; 
  overflow-wrap: break-word;
 }
-
-/*
-.hero-backdrop {
-   background-image: url('../images/image_no_image.jpg');
-   background-repeat:no-repeat;
-   background-size:contain;
-   width:500px;
-   height:750px;
-   
-}
-*/
 
 .prelive {
 font-size: .875em;
@@ -100,17 +85,17 @@ code{
 	z-index:200;
 }
 
-.hero-container{
+.legend-container{
 	position:relative;
 	z-index:100
 }
 
-.hero-text{
+.legend-text{
 	position:relative;
 	z-index:200
 }
 
-.hero-backdrop{
+.legend-backdrop{
 	background-image: url('../images/backdrop.jpg');
 	position:absolute;
 	top:0;

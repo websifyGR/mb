@@ -1,0 +1,29 @@
+
+  <div id="jsonraw" style="display:none;"></div> 
+  <div id="live" style="display:none;"></div>  
+  <div id="live-result" style="display:none;"></div>
+  
+   <div id="showJsonBottomButton" class="container spacerTopBottomMD" style="display:none;">
+    <div class="row">
+      <button id="showJsonBottom" 
+	          onClick="ToggleElement('showJsonBottom'
+			                        ,'botJson'
+									,'Εμφάνιση απάντησης Json'
+									,'Απόκρυψη απάντησης Json'
+									);" 
+			  type="button" 
+			  class="btn btn-primary"
+	  >Εμφάνιση απάντησης Json
+	  </button>
+    </div>
+  </div> 
+  
+  
+  <div id="botJson" class="container shadow p-3 mb-5 bg-body rounded" style="display:none;">
+    <div class="row"> 
+      <div id="offcanvasjson" style="padding-top:30px;padding-right:35px;">
+	    <div id="prelive" class="prelive"></div>
+	  </div>
+    </div>
+  </div>
+  

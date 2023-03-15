@@ -1,0 +1,40 @@
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasLEFT" aria-labelledby="offcanvasLEFTLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasLEFTLabel">API JSON Response</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Κλείσιμο"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div id="offcanvasLEFTContent">
+
+    </div>
+
+  </div>
+</div>
+
+<!--
+
+.offcanvas-start   places offcanvas on the left of the viewport (shown above)
+.offcanvas-end     places offcanvas on the right of the viewport
+.offcanvas-top     places offcanvas on the top of the viewport
+.offcanvas-bottom  places offcanvas on the bottom of the viewport
+
+<a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasLEFT" role="button" aria-controls="offcanvasLEFT">
+  Link with href
+</a>
+<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasLEFT" aria-controls="offcanvasLEFT">
+  Button with data-bs-target
+</button>
+
+
+$.ajax({
+  url: "/api/getWeather",
+  data: {
+    zipcode: 97201
+  },
+  success: function( result ) {
+    $( "#weather-temp" ).html( "<strong>" + result + "</strong> degrees" );
+  }
+});
+
+
+-->
