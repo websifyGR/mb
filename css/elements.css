@@ -14,6 +14,47 @@
    z-index: 99999; 
 }
 
+.loading-video {
+   background-image:url('../images/loader.gif') center center no-repeat; 
+}
+
+.movie-id{
+   position: absolute;
+   background-color: white;
+   width:80%;
+   padding: 6px;   
+   top:40px;
+   left: 50%;
+   text-align: center;
+   border-radius: 6px;
+   transform: translateX(-50%);
+   opacity:.6;   
+}
+
+.PouchDBplayground {
+   margin:30px;
+   padding:30px;
+   background-color:#1E1E1E;
+   border-radius: 8px;	
+}
+
+.playground {
+   border-radius: 8px;
+   background-color:yellow;
+   color:red;
+   font-size:150%;
+   font-weight:bold;
+   margin:20px;
+   padding:20px;		
+}
+
+.movie-image-wrapper {
+   position: absolute;
+   width:100%;
+   height:100%;   
+      	
+}
+
 .prestyle {
   width:100%;
   margin: auto;  
@@ -104,7 +145,8 @@ code{
 	height:100%;
 	background-size:cover;
 	background-position:50%;
-	opacity:.4}
+	opacity:.4
+}
 
 .websify-logo-inpage{
 	margin-top:20px;
@@ -131,3 +173,65 @@ margin-top: 40px;
 margin-bottom: 40px;
 }
 
+.blink-image {
+    -moz-animation: blink normal 2s infinite ease-in-out; /* Firefox */
+    -webkit-animation: blink normal 2s infinite ease-in-out; /* Webkit */
+    -ms-animation: blink normal 2s infinite ease-in-out; /* IE */
+    animation: blink normal 2s infinite ease-in-out; /* Opera and prob css3 final iteration */
+}
+ 
+.blink-image {
+    -moz-animation: blink normal 2s infinite ease-in-out; /* Firefox */
+    -webkit-animation: blink normal 2s infinite ease-in-out; /* Webkit */
+    -ms-animation: blink normal 2s infinite ease-in-out; /* IE */
+    animation: blink normal 2s infinite ease-in-out; /* Opera and prob css3 final iteration */
+}
+  
+ 
+@-moz-keyframes blink {
+    0% {
+        opacity:1;
+    }
+    50% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+} 
+ 
+@-webkit-keyframes blink {
+    0% {
+        opacity:1;
+    }
+    50% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+/* IE */
+@-ms-keyframes blink {
+    0% {
+        opacity:1;
+    }
+    50% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+} 
+/* Opera and prob css3 final iteration */
+@keyframes blink {
+    0% {
+        opacity:1;
+    }
+    50% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}

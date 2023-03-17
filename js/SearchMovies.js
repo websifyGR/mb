@@ -5,11 +5,10 @@ function renderHTML(movies){
 var contentHTML        = '';
 var divClassCol        = '<div class="col" style="margin-top:40px;">';
 var divClassCard       = '<div class="card h-100" style="position:relative;">';
+var spanClassImageWr   = '<span clas="movie-image-wrapper">';
 var divClassCardBody   = '<div class="card-body">';
 var divClassCardFooter = '<div class="card-footer">';
-var divClassFilm1      = '<i class="bi bi-camera-reels div-Class-Film1"></i>';
-var divClassFilm2      = '<span class="div-Class-Film2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-film" viewBox="0 0 16 16"><path d="M0 1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1zm4 0v6h8V1H4zm8 8H4v6h8V9zM1 1v2h2V1H1zm2 3H1v2h2V4zM1 7v2h2V7H1zm2 3H1v2h2v-2zm-2 3v2h2v-2H1zM15 1h-2v2h2V1zm-2 3v2h2V4h-2zm2 3h-2v2h2V7zm-2 3v2h2v-2h-2zm2 3h-2v2h2v-2z"/></svg></span>';
-var divClassFilm3      = '<img class="div-Class-Film3" src="images/movie_trailer.png" alt="Movie Trailer">';
+var endSpan            = '</span>';
 var endDiv             = '</div>';
 
 for (let i = 0; i < ObjectLength(movies); i++) {
@@ -19,17 +18,20 @@ for (let i = 0; i < ObjectLength(movies); i++) {
   }else{
     var image = '<a href="#"><img src="images/image_no_image.jpg" class="card-img-top" alt="' + movies[i].original_title + '"></a>';
   }
- 
+  
 var contentHTML = contentHTML 
 
                       + divClassCol 
 					  + divClassCard 
 					  
-					  + '<a href="#">' + divClassFilm2 + '</a>'
+					  + '<span id="openVideosButton_' + movies[i].id + '"></span>'
 					  + '<button type="button" class="btn btn-primary position-relative">Μέση Βαθμολογία<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">' + movies[i].vote_average.toFixed(2) + '<span class="visually-hidden">unread messages</span></span></button>'
                       
-					  + image 
-                      
+					  + spanClassImageWr
+					  + image
+					  + '<div class="movie-id">Movie ID : ' + movies[i].id + '</div>'
+					  + endSpan
+
 					  + divClassCardBody 
 					  + '<a id="title_id_'+ movies[i].id +'" href="#"<h5 class="card-title">' + movies[i].original_title + '</h5></a>'
                       + endDiv
@@ -44,11 +46,33 @@ var contentHTML = contentHTML
 					  + endDiv
 					  + endDiv; 
 
+					  
+ fetchVideos(movies[i].id); // Le Brand : βλέπω εάν υπάρχουν διαθέσιμα videos για αυτή την ταινία ώστε να τα δώσω αργότερα σε ένα πλαίσιο offcanvas					  
+					  
 //console.log('function data: ',  jsonDATA[i].original_title);
 //console.log(contentHTML);			  
-}
+} // end for loop
   return contentHTML;
 }
+
+var fetchVideos = async (movieID) => {	
+	var openVideosButton = '';
+	var divClassFilm     = '<span title="Βρέθηκαν διαθέσιμα Trailers. Πατήστε εδώ για να φορτώσουν" class="div-Class-Film2"><img class="blink-image" src="../images/film-24.png" alt="Video Clip"></span>';
+	var divClassNoFilm   = '<span title="Δυστυχώς δε βρέθηκαν διαθέσιμα Trailers για αυτή την ταινία" class="div-Class-Film2"><img src="../images/film-24.png" alt="Video Clip"></span>';
+	
+    var videos = await fetch('https://api.themoviedb.org/3/movie/' + movieID + '/videos?api_key=ab166ff82684910ae3565621aea04d62&language=en-US');
+    var clips = await videos.json();
+    var clipsCount = ObjectLength(clips.results);
+	//console.log('clips.results : ',clips.results);
+	//console.log('MovieID,clipsCount : ',movieID,clipsCount);
+	if(clipsCount > 0){
+	openVideosButton = '<span onClick="GetClips('+ movieID +');" data-bs-toggle="offcanvas" data-bs-target="#offcanvasVIDEOS" aria-controls="offcanvasVIDEOS">' + divClassFilm + '</span>';
+	}else{
+	openVideosButton = divClassNoFilm;	
+	}
+	document.getElementById('openVideosButton_' + movieID).innerHTML = openVideosButton;
+};
+
 
 var search_term = '';
 var buttonLoading = '<span class="spinner-border text-danger" role="status"><span class="visually-hidden">Loading...</span></span>';
@@ -73,6 +97,7 @@ var fetchMovies = async () => {
     }
     document.getElementById('results').innerHTML = renderHTML(data.results);
     document.getElementById('legendtext').innerHTML = 'Αναζήτηση για : ' + search_term;
+	document.getElementById('offcanvas-movie-title').innerHTML = search_term;
     document.getElementById('searchingnow').innerHTML = '';
     var JSFormatt = JSON.stringify(data.results, null, '\t');
     document.getElementById('jsonraw').innerHTML = '';	
@@ -90,7 +115,6 @@ var fetchMovies = async () => {
 	document.getElementById('prelive').style.backgroundColor = '#1E1E1E';
 	document.getElementById('offcanvasLEFTContent').innerHTML = '';
   //console.log('JSON LINES : ',document.getElementById('prelive').getElementsByTagName('*').length);
-  //console.log(JSONFormatt.json);
     document.getElementById('moviescount').innerHTML = '';
     document.getElementById('moviescount').innerHTML = data.total_results;
     document.getElementById('offcanvasLEFTContent').innerHTML = document.getElementById('prelive').innerHTML;
@@ -109,6 +133,7 @@ var fetchMovies = async () => {
            search_term = e.target.value;
            fetchMovies();
           });
-       }, 2000);		
+       }, 2000);		   
     });
+	
 });

@@ -6,12 +6,16 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/scrollbtn.css" rel="stylesheet">
 	<link href="css/elements.css" rel="stylesheet">
+	<script src="js/pouchdb-8.0.1.js"></script>
+	<script>
+      var db = new PouchDB('WebsifyGR_Movie_Browser');
+    </script>
 	<script defer src="js/json-formatter.umd.js" charset="UTF-8"></script>
 	<script src="js/General_Functions.js"></script>
     <script src="js/jQuery_JavaScript_Library_v3.6.4.min.js"></script> 
     <script type="text/javascript"> 
       $(document).ready(function(){
-	  $(".html-constructor").load("html/Class_Constract.html");   
+	  $(".html-constructor").load("html/Class_Construct.html");   
 	  setTimeout(function() {
 	   /* BOF LOAD index.html COMPONENTS */
 		 $(".html-index-movies-container").load("html/HTML_index_movies_container.html");
@@ -37,5 +41,38 @@
   </head>     
   <body>
    <span class="html-constructor"></span>
+   <div class="PouchDBplayground" id="PouchDBplayground">
+   <div class="playground" id="playground">PouchDB Version 8.0.1 Playground</div>
+   
+   <script>
+   
+   db.info().then(function (info) {
+   console.log(info);
+   var formatter = new JSONFormatter(JSON.parse(JSON.stringify(info, null, '\t')), 3, { theme: 'dark', hoverPreviewEnabled: true });
+   document.getElementById('pouchDBresults').appendChild(formatter.render());
+   document.getElementById('pouchDBresults').style.backgroundColor = "#1E1E1E";
+   //document.getElementById('pouchDBresults').innerHTML = JSON.stringify(info, null, '\t');
+/*
+var doc = {
+  "_id": "mittens",
+  "name": "Mittens",
+  "occupation": "kitten",
+  "age": 3,
+  "hobbies": [
+    "playing with balls of yarn",
+    "chasing laser pointers",
+    "lookin' hella cute"
+  ]
+};
+db.put(doc);
+*/
+   })
+   
+   
+  
+   </script>
+   
+   <div id="pouchDBresults" style="background-color:#1E1E1E;"></div>
+   </div>
   </body>
 </html>
