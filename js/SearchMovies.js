@@ -57,8 +57,8 @@ var contentHTML = contentHTML
 
 var fetchVideos = async (movieID) => {	
 	var openVideosButton = '';
-	var divClassFilm     = '<span title="Βρέθηκαν διαθέσιμα Trailers. Πατήστε εδώ για να φορτώσουν" class="div-Class-Film2"><img class="blink-image" src="../images/film-24.png" alt="Video Clip"></span>';
-	var divClassNoFilm   = '<span title="Δυστυχώς δε βρέθηκαν διαθέσιμα Trailers για αυτή την ταινία" class="div-Class-Film2"><img src="../images/film-24.png" alt="Video Clip"></span>';
+	var divClassFilm     = '<span title="Βρέθηκαν διαθέσιμα Trailers. Πατήστε εδώ για να φορτώσουν" class="div-Class-Film2"><img class="blink-image" src="./images/film-24.png" alt="Video Clip"></span>';
+	var divClassNoFilm   = '<span title="Δυστυχώς δε βρέθηκαν διαθέσιμα Trailers για αυτή την ταινία" class="div-Class-Film2"><img src="./images/film-24.png" alt="Video Clip"></span>';
 	
     var videos = await fetch('https://api.themoviedb.org/3/movie/' + movieID + '/videos?api_key=ab166ff82684910ae3565621aea04d62&language=en-US');
     var clips = await videos.json();
