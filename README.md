@@ -29,6 +29,5 @@ A[https://websify.gr/mb] -- GET --> B[(tmdb.org)]
  H -- HTML --> A
 
 ```
-![WEBSIFY.GR](https://websify.gr/assets/images/logo_websify.png)
 
 created with https://stackedit.io/
